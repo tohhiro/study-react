@@ -1,6 +1,6 @@
-import { Links } from "../components/Links";
-import { Headline } from "../components/Headline";
-import classes from "./Main.module.css";
+import { Links } from "src/components/Links";
+import { Headline } from "src/components/Headline";
+import classes from "src/components/Main/Main.module.css";
 
 export function Main(props) {
   const { page } = props;
@@ -9,7 +9,7 @@ export function Main(props) {
       <Headline page={page}>
         {<code className={classes.code}>pages/{page}.js</code>}
       </Headline>
-      <Links />
+      <Links/>
     </main>
   );
 }
