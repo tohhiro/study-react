@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import Head from "next/head";
 import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
@@ -8,9 +8,11 @@ import classes from "src/styles/Home.module.css";
 export default function Home() {
   const [count, setCount] = useState(0)
 
-  const handleClick = () => {
-    setCount(count => count + 1)
-  }
+  const handleClick = useCallback(() => {
+    if(count < 10){
+      setCount(count => count + 1)
+    }
+  },[count])
 
 
   return (
