@@ -1,39 +1,17 @@
-import { useCallback, useState } from "react"
 import Head from "next/head";
 import { Header } from "src/components/Header";
 import { Main } from "src/components/Main";
 import { Footer } from "src/components/Footer";
 import classes from "src/styles/Home.module.css";
+import { useCounter } from "src/hooks/useCounter"
+import { useInputArray } from "src/hooks/useInputArray"
+import { useBgLightBlue } from "src/hooks/useBgLightBlue"
+
 
 export default function Home() {
-  const [count, setCount] = useState(0)
-  const [text, setText] = useState("")
-  const [isShow, setIsShow] = useState(true)
-  const [array, setArray] = useState([])
-
-  const handleClick = useCallback(() => {
-    if(count < 10){
-      setCount(prevCount => prevCount + 1)
-    }
-  },[count])
-
-  const handleChange = useCallback((e) =>{
-    setText(e.target.value.trim())
-  },[text])
-
-  const handleDisplay = useCallback(()=>{
-    setIsShow(prevIsShow => !prevIsShow)
-  },[isShow])
-
-  const handleAdd = useCallback(()=>{
-    setArray(prevArray => {
-      if(prevArray.some((item)=> item === text)){
-        alert('同じ要素が存在します。')
-        return prevArray
-      }
-      return [...prevArray,text]
-    })
-  },[text])
+  const {count, isShow, handleClick, handleDisplay} = useCounter()
+  const  {text, array, handleChange, handleAdd} = useInputArray()
+  useBgLightBlue()
 
   return (
     <div className={classes.container}>
