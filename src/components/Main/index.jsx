@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Links } from "src/components/Links";
 import { Headline } from "src/components/Headline";
 import classes from "src/components/Main/Main.module.css";
@@ -27,8 +27,7 @@ const ITEMS = [
   },
 ];
 
-export function Main(props) {
-  const { page } = props;
+export const Main = (props) => {
 
   const [items, setItems] = useState(ITEMS)
 
@@ -40,7 +39,7 @@ export function Main(props) {
 
   return (
     <main className={classes.main}>
-      <Headline page={page} handleReduce={handleReduce}>
+      <Headline page={props.page} handleReduce={handleReduce}>
         {<code className={classes.code}>{items.length}</code>}
       </Headline>
       <Links items={items}/>

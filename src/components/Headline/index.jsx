@@ -1,6 +1,6 @@
 import classes from "src/components/Headline/Headline.module.css";
 
-export function Headline(props) {
+export const Headline = (props) => {
   const { page, children } = props;
   return (
     <div>
