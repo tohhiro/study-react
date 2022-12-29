@@ -6,7 +6,7 @@ import classes from "src/styles/Home.module.css";
 
 
 export default function About(props) {
-  const  {count, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd } = props
+  const  {count, doubleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd } = props
   
   return (
     <div className={classes.container}>
@@ -17,6 +17,7 @@ export default function About(props) {
       {isShow ? <h1>{count}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
+      {isShow ? <h2>{doubleCount}</h2> : null}
       <input type="text" value={text} onChange={(e)=>{handleChange(e)}}/>
       <button onClick={handleAdd}>追加</button>
       <ul>
